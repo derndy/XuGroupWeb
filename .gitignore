@@ -1,0 +1,12 @@
+# IDEs
+.idea/
+
+# Hugo
+/resources/
+public/
+assets/jsconfig.json
+
+# Local Hugo/Go installers
+/go1.22.1.linux-amd64.tar.gz*
+/hugo_extended_*.tar.gz
+/.hugo_build.lock

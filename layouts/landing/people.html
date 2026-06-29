@@ -1,0 +1,46 @@
+{{ define "main" }}
+<style>
+    /* 统一标题样式 */
+    .page-title {
+        text-align: center;
+        font-size: 1.875rem; /* 对应 text-3xl */
+        font-weight: 700; /* 对应 font-bold */
+        margin-top: 1.5rem; /* 对应 my-6 */
+        margin-bottom: 1.5rem; /* 对应 my-6 */
+    }
+    .group-photo {
+        text-align: center;
+        margin: 20px 0;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .group-photo img {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+    hr.section-divider {
+        border: none;
+        border-top: 2px solid #333;
+        margin: 30px auto; /* 居中 */
+        max-width: 1200px; /* 与内容宽度一致 */
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<h1 class="page-title">{{ .Title }}</h1>
+
+<div class="group-photo">
+    <img src="/images/people/东盛楼_20250910.png?fm=webp" alt="Group Photo 2">
+</div>
+<hr class="section-divider">
+{{ partial "people-custom.html" . }}
+<hr class="section-divider">
+<div class="group-photo">
+    <img src="/images/people/红林花海_2024.9.18.jpg?fm=webp" alt="Group Photo 1">
+</div>
+<div class="group-photo">
+    <img src="/images/people/课题组合照_2024(1200).jpg?fm=webp" alt="Group Photo 1">
+</div>
+{{ end }}

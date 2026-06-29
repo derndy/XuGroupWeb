@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xushidanggroup.netlify.app/sitemap.xml
