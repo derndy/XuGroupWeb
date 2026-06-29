@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Xu Research Group # Website name
-baseURL: 'https://xushidanggroup.netlify.app/' # Website URL
+baseURL: 'https://xushidangresearchgroup.netlify.app/' # Website URL
 
 ############################
 ## LANGUAGE
