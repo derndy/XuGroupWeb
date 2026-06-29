@@ -49,7 +49,7 @@ sections:
       title: 
       subtitle: ''
       text: |
-        ### We are recruiting!
+        ### We are recruit!
 
         We are actively looking for new group members at all levels.
 
