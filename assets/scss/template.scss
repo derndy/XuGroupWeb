@@ -18,3 +18,119 @@
 .cta-group {
   justify-content: center;
 }
+
+// Homepage identity hero
+.homepage-hero .carousel-item::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(4, 18, 31, 0.42), rgba(4, 18, 31, 0.2)),
+    linear-gradient(0deg, rgba(4, 18, 31, 0.48), rgba(4, 18, 31, 0.06) 55%);
+}
+
+.homepage-hero .carousel-item > .position-absolute {
+  z-index: 1;
+}
+
+.homepage-hero .hero-title {
+  max-width: 64rem;
+  margin-right: auto;
+  margin-bottom: 1.35rem;
+  margin-left: auto;
+  color: #fff;
+  font-size: clamp(2.4rem, 5.4vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  text-wrap: balance;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.48);
+}
+
+.homepage-hero .hero-lead {
+  max-width: 58rem;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(1.05rem, 1.55vw, 1.38rem);
+  font-weight: 400;
+  line-height: 1.55;
+  text-wrap: balance;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.62);
+}
+
+.homepage-hero .hero-lead strong {
+  display: block;
+  margin-top: 1.25rem;
+  color: #9ce7e9;
+  font-size: clamp(1.03rem, 1.45vw, 1.28rem);
+  font-weight: 700;
+  letter-spacing: 0.012em;
+}
+
+// Homepage recruitment section
+.homepage-recruitment {
+  background: linear-gradient(180deg, #f7fafc 0%, #fff 100%);
+}
+
+.homepage-recruitment .section-heading,
+.homepage-recruitment .col-12 {
+  max-width: 64rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.homepage-recruitment .section-heading h1 {
+  color: #13283a;
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  letter-spacing: -0.035em;
+}
+
+.homepage-recruitment .section-heading p {
+  color: #506678;
+  font-size: 1.12rem;
+}
+
+.homepage-recruitment h4 {
+  margin-top: 2.35rem;
+  margin-bottom: 0.9rem;
+  color: #163d4d;
+  font-size: 1.25rem;
+}
+
+.homepage-recruitment li {
+  margin-bottom: 0.7rem;
+  padding-left: 0.25rem;
+}
+
+.homepage-recruitment a {
+  font-weight: 650;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+@media (max-width: 767.98px) {
+  .homepage-hero .wg-hero {
+    margin-right: 2.6rem !important;
+    margin-left: 2.6rem !important;
+  }
+
+  .homepage-hero .hero-title {
+    margin-bottom: 1rem;
+    font-size: clamp(2.15rem, 11vw, 3.15rem);
+  }
+
+  .homepage-hero .hero-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .homepage-hero .hero-lead strong {
+    margin-top: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .homepage-recruitment {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+  }
+}
