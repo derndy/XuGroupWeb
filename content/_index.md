@@ -6,68 +6,74 @@ type: landing
 
 sections:
   - block: slider
+    id: homepage-hero
     content:
       slides:
-        - title:
-          content: A comprehensive workflow integrating molecular design rules, DFT calculations, and machine learning for the prediction and optimization of photophysical properties in molecular systems.
+        - title: Designing Scientific Learning and Discovery Systems
+          content: We design how scientific systems represent information, organize interactions, learn from evidence, and generate new knowledge and designs. **Learn better. Create better evidence. Discover deeper. Design forward.**
           align: center
           background:
             image:
               filename: 1.jpg
               filters:
-                brightness: 0.8
+                brightness: 0.62
             position: center
             color: '#ffffff'
-        - title:
-          content: Application of advanced machine learning algorithms to predict aggregation-induced emission (AIE) characteristics, achieving high accuracy in identifying promising molecular candidates.
+        - title: Designing Scientific Learning and Discovery Systems
+          content: We design how scientific systems represent information, organize interactions, learn from evidence, and generate new knowledge and designs. **Learn better. Create better evidence. Discover deeper. Design forward.**
           align: center
           background:
             image:
               filename: 2.jpg
               filters:
-                brightness: 0.8
+                brightness: 0.62
             position: center
             color: '#ffffff'
-        - title:
-          content: Visual representation of molecular assembly and interaction using a creative, Lego-inspired 3D modeling approach to highlight the modularity and precision in chemical design.
+        - title: Designing Scientific Learning and Discovery Systems
+          content: We design how scientific systems represent information, organize interactions, learn from evidence, and generate new knowledge and designs. **Learn better. Create better evidence. Discover deeper. Design forward.**
           align: center
           background:
             image:
               filename: 3.jpg
               filters:
-                brightness: 0.8
+                brightness: 0.62
             position: center
             color: '#ffffff'
     design:
       slide_height: '600px'
       is_fullscreen: false
       loop: true
-      interval: 4000
+      interval: 6500
+      css_class: homepage-hero
 
   - block: markdown
+    id: join-us
     content:
-      title: 
-      subtitle: ''
+      title: Join Us
+      subtitle: For students and researchers who want to build the systems behind scientific discovery.
       text: |
-        ### We are recruiting!
+        We welcome thoughtful, technically ambitious people who want to understand how scientific systems should represent information, organize interactions, learn from evidence, and generate new knowledge and designs. Our work spans AI, chemistry, materials science, biology, and medicine, but our focus is methodological: we build reusable learning and discovery systems rather than simply apply existing models to new datasets.
 
-        We are actively looking for new group members at all levels.
+        #### What we value
 
-        - SCUT undergraduate students interested in joining the group please shoot Shidang an email.
-        - Undergraduate students interested in joining the group for their PhD/Master are encouraged to apply for admission to an SCUT graduate program.
-        - Graduate students admitted to BMSE or other departments at SCUT, as well as those from other universities, who are interested in working with us should contact Shidang.
-        - We are also on the lookout for outstanding postdoctoral researchers/research assistants with a background in any combination of the following: Biology, Artificial Intelligence, Medicine, Organic Chemistry, Computational Chemistry, Materials Science, or Physics. Python chops and experience using databases are a big plus.
+        - **Scientific curiosity:** the willingness to turn important scientific questions into precise learning and design problems.
+        - **Problem ownership:** the initiative to carry an idea from formulation to implementation, evidence, and a reproducible result.
+        - **Evidence discipline:** careful validation, honest analysis of uncertainty, and clear documentation.
+        - **Collaboration:** the ability to work across computation, theory, and experiment while contributing a distinct technical strength.
+
+        #### Ways to join
+
+        - **SCUT undergraduate students:** Contact Prof. Shidang Xu to discuss research projects and longer-term participation in the group.
+        - **Prospective Master's and PhD students:** Apply to an appropriate SCUT graduate programme and contact us early to discuss research fit.
+        - **Students already admitted to BMSE or related SCUT programmes, as well as visiting students from other universities:** Contact us with the scientific questions and directions you hope to explore.
+        - **Postdoctoral researchers and research assistants:** We welcome enquiries from candidates with strengths in AI and machine learning, computational or organic chemistry, materials science, biology, medicine, physics, or related areas. Experience with Python, scientific computing, databases, computational modelling, or experimental research is valuable; no single disciplinary background is required.
+
+        #### How to contact us
+
+        Email [xusd@scut.edu.cn](mailto:xusd@scut.edu.cn) with a short introduction, your CV, relevant experience, and one scientific question or research direction you would genuinely like to pursue.
+    design:
+      columns: '1'
+      css_class: homepage-recruitment
+      spacing:
+        padding: ['5rem', '0', '5rem', '0']
 ---
-
-<style>
-  .slider-title {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-  }
-
-  .slider-background {
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    border-radius: 10px;
-  }
-</style>
