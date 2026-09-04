@@ -15,6 +15,14 @@
         <span aria-hidden="true">/</span>
         <span aria-current="page">Pillar {{ $pillar.numeral }}</span>
       </nav>
+      <nav class="pillar-switcher" aria-label="Available Pillar detail pages">
+        <span>Detailed Pillars</span>
+        {{ range $item := site.Data.research_system.pillars }}
+          {{ with $item.detail_url }}
+            <a href="{{ . | relURL }}"{{ if eq $pillarID $item.id }} aria-current="page"{{ end }}>Pillar {{ $item.numeral }}</a>
+          {{ end }}
+        {{ end }}
+      </nav>
       <div class="pillar-detail-hero__grid">
         <div>
           <p class="lab-eyebrow">Pillar {{ $pillar.numeral }} · {{ $pillar.role }}</p>
@@ -44,9 +52,9 @@
       <header class="lab-section-heading">
         <div>
           <p class="lab-section-number">Scope</p>
-          <h2 id="pillar-scope-title">Four design decisions form one learner.</h2>
+          <h2 id="pillar-scope-title">{{ $detail.sections.scope_title }}</h2>
         </div>
-        <p>Each decision is evaluated in relation to the others. A representation is useful only when its interactions, signals, and learning behaviour remain scientifically meaningful.</p>
+        <p>{{ $detail.sections.scope_text }}</p>
       </header>
       <div class="pillar-scope-grid">
         {{ range $index, $item := $detail.scope }}
@@ -60,11 +68,11 @@
     <div class="lab-shell pillar-contribution__grid">
       <header>
         <p class="lab-section-number">Contribution contract</p>
-        <h2 id="pillar-contribution-title">Methods are connected to inspectable outputs.</h2>
-        <p>These are the forms of work and intended artifacts for this Pillar—not claims that a particular result has already passed review.</p>
+        <h2 id="pillar-contribution-title">{{ $detail.sections.contribution_title }}</h2>
+        <p>{{ $detail.sections.contribution_text }}</p>
       </header>
       <div class="pillar-methods">
-        <h3>Method families</h3>
+        <h3>Method families under study</h3>
         <ul>{{ range $detail.methods }}<li>{{ . }}</li>{{ end }}</ul>
       </div>
       <div class="pillar-outputs">
@@ -83,9 +91,9 @@
       <header class="lab-section-heading">
         <div>
           <p class="lab-section-number">Representative testbeds</p>
-          <h2 id="pillar-testbeds-title">The learner must survive more than one scientific setting.</h2>
+          <h2 id="pillar-testbeds-title">{{ $detail.sections.testbeds_title }}</h2>
         </div>
-        <p>Testbeds are used to challenge transfer, identifiability, and evidence requirements. They do not redefine the Pillar as an applications category.</p>
+        <p>{{ $detail.sections.testbeds_text }}</p>
       </header>
       <ul class="pillar-testbed-list">
         {{ range $index, $testbed := $detail.testbeds }}<li><span>{{ printf "%02d" (add $index 1) }}</span>{{ $testbed }}</li>{{ end }}
@@ -97,7 +105,7 @@
     <div class="lab-shell">
       <header class="pillar-horizon__heading">
         <p class="lab-section-number">Research horizon</p>
-        <h2 id="pillar-horizon-title">Separate present work from future synthesis.</h2>
+        <h2 id="pillar-horizon-title">{{ $detail.sections.horizon_title }}</h2>
       </header>
       <ol class="pillar-horizon__rail">
         {{ range $detail.horizons }}
@@ -111,7 +119,7 @@
     <div class="lab-shell pillar-review__grid">
       <header>
         <p class="lab-section-number">Evidence discipline</p>
-        <h2 id="pillar-review-title">A learning system is credible only when it can be challenged.</h2>
+        <h2 id="pillar-review-title">{{ $detail.sections.review_title }}</h2>
       </header>
       <div class="pillar-review__principles">
         {{ range $detail.review_principles }}
@@ -136,7 +144,7 @@
 
   <section class="lab-section pillar-detail-routes" aria-labelledby="pillar-detail-routes-title">
     <div class="lab-shell">
-      <header><p class="lab-section-number">Continue through the system</p><h2 id="pillar-detail-routes-title">Connect the learning architecture to its evidence and people.</h2></header>
+      <header><p class="lab-section-number">Continue through the system</p><h2 id="pillar-detail-routes-title">{{ $detail.sections.routes_title }}</h2></header>
       <div class="research-route-grid">
         <a href="{{ "/research/" | relURL }}"><span>Research</span><strong>Return to the system map</strong><small>See how all three Pillars work together.</small></a>
         <a href="{{ "/publication/" | relURL }}"><span>Outputs</span><strong>Inspect publications</strong><small>Follow the existing scientific record.</small></a>

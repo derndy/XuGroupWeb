@@ -86,6 +86,17 @@ The first detailed Pillar route now provides the reusable page architecture for 
 - the two legacy Research images are inventoried as `BLOCKED / REVIEW_REQUIRED` and remain unrendered;
 - no project card, performance result, dataset, code artifact, or download has been made public.
 
+## Fourth implementation slice
+
+Pillar II now uses the tested detail-page system without duplicating layout code:
+
+- Pillar-specific section titles and explanatory copy are stored with each canonical data record rather than hard-coded in the template;
+- the page covers evidence audit, structured evidence, active acquisition, perturbation design, constrained generation, verification, and closed-loop updates;
+- positive, negative, null, contradictory, and failed evidence are retained as first-class records;
+- the conceptual loop is explicitly distinguished from a completed autonomous system or experimental result;
+- a shared switcher links only the detailed Pillar routes that currently exist;
+- proposed molecular, peptide, formulation, or materials projects remain absent until their records and public-release gates are approved.
+
 ## Audit findings for later batches
 
 1. Navigation remains tied to existing live routes. Projects, Resources, and the final grouped Outputs/Updates navigation should be introduced only when those routes contain useful content.
@@ -97,12 +108,11 @@ The first detailed Pillar route now provides the reusable page architecture for 
 
 ## Recommended next slices
 
-1. Populate Pillar II through the tested detail-page template.
-2. Populate Pillar III through the same template and complete cross-Pillar navigation.
-3. Import the first approved scientific visual with responsive derivatives, caption, alt text, provenance, and rights metadata.
-4. Refactor the People page presentation while preserving profile content.
-5. Refactor News and Gallery presentation, including accessible lightbox behaviour.
-6. Build Publications and Resources architecture.
-7. Publish governed Project records and detail pages only after scientific approval.
+1. Populate Pillar III through the same template and complete the three-Pillar detail set.
+2. Import the first approved scientific visual with responsive derivatives, caption, alt text, provenance, and rights metadata.
+3. Refactor the People page presentation while preserving profile content.
+4. Refactor News and Gallery presentation, including accessible lightbox behaviour.
+5. Build Publications and Resources architecture.
+6. Publish governed Project records and detail pages only after scientific approval.
 
 Each slice should receive a production Hugo build, internal-link audit, heading and landmark check, responsive review, and Netlify Deploy Preview review before merge.

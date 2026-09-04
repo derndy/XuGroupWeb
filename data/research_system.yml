@@ -16,6 +16,16 @@ pillars:
       - Primitives, operators, and mechanism dictionaries
     outcome: A learner whose internal organisation can support scientific interpretation, testing, and design.
     detail:
+      sections:
+        scope_title: Four design decisions form one learner.
+        scope_text: Each decision is evaluated in relation to the others. A representation is useful only when its interactions, signals, and learning behaviour remain scientifically meaningful.
+        contribution_title: Methods are connected to inspectable outputs.
+        contribution_text: These are the forms of work and intended artifacts for this Pillar—not claims that a particular result has already passed review.
+        testbeds_title: The learner must survive more than one scientific setting.
+        testbeds_text: Testbeds are used to challenge transfer, identifiability, and evidence requirements. They do not redefine the Pillar as an applications category.
+        horizon_title: Separate present work from future synthesis.
+        review_title: A learning system is credible only when it can be challenged.
+        routes_title: Connect the learning architecture to its evidence and people.
       introduction:
         - Many scientific models inherit their learning problem from convenient data structures or benchmark conventions. We begin instead with the scientific distinctions a system must preserve, the interactions it must expose, and the evidence that could challenge what it has learned.
         - This Pillar studies the architecture of the learner itself. Representation space, interaction structure, guiding signal, and learning dynamics are designed together so that prediction can support interpretation, testing, and eventually scientific design.
@@ -94,6 +104,7 @@ pillars:
     role: The evidence environment
     title: Evidence Engineering and Closed-Loop Discovery & Design
     public_title: Design what evidence systems acquire
+    detail_url: /research/evidence-engineering/
     question: What evidence should the system create next?
     thesis: We design datasets, perturbations, candidates, and experiments that distinguish competing explanations and change what can be learned next.
     focus:
@@ -103,6 +114,88 @@ pillars:
       - Active acquisition and information gain
       - De novo, inverse, and closed-loop design
     outcome: An evidence process that is purposeful, inspectable, and connected to the next scientific decision.
+    detail:
+      sections:
+        scope_title: Evidence becomes a designed part of the system.
+        scope_text: Evidence is evaluated by whether it is trustworthy, reusable, and capable of distinguishing explanations—not simply by how much of it is available.
+        contribution_title: Each acquisition changes a recorded decision.
+        contribution_text: These are the evidence operations and intended artifacts for this Pillar—not claims that a particular experiment, candidate, or closed loop has already passed review.
+        testbeds_title: Evidence strategy must respect scientific context.
+        testbeds_text: Measurements, feasible perturbations, constraints, and failure modes differ across testbeds. The shared contribution is the logic for deciding what evidence is valuable next.
+        horizon_title: Build present evidence systems without overstating autonomy.
+        review_title: A closed loop is credible only when every update is auditable.
+        routes_title: Connect the evidence environment to its learner and scientific record.
+      introduction:
+        - Scientific progress can be constrained by evidence that is abundant but poorly specified, biased toward convenient measurements, or unable to distinguish competing explanations. More data does not automatically create a better scientific decision.
+        - This Pillar treats evidence as a designed component of the discovery system. We audit what is known, make alternative hypotheses explicit, and select the next dataset, perturbation, candidate, or experiment for the uncertainty it can resolve.
+      responsibility: Design the evidence environment surrounding the scientific learner.
+      contribution: Traceable audits, evidence structures, acquisition policies, and closed-loop records that connect learning to the next scientific decision.
+      architecture:
+        label: Closed-loop conceptual framework
+        title: From an evidence gap to a verified update
+        caption: This diagram describes the decision logic of Pillar II. It is a conceptual framework, not a completed autonomous loop or an experimental result.
+        nodes:
+          - label: Decision context
+            text: Define the scientific question, endpoint, boundary, and practical constraints.
+          - label: Evidence audit
+            text: Inspect provenance, measurements, coverage, bias, and unresolved gaps.
+          - label: Competing hypotheses
+            text: State alternatives and the observations that would distinguish them.
+          - label: Acquire or create
+            text: Select a dataset, perturbation, candidate, or experiment for its expected information value.
+          - label: Measure and update
+            text: Adjudicate positive, negative, null, and failed evidence before choosing the next action.
+      scope:
+        - title: Evidence audit
+          text: Evaluate measurement context, provenance, missingness, bias, comparability, and the decision boundary before model development.
+        - title: Structured evidence
+          text: Build endpoint-aware datasets, schemas, and mechanism or knowledge dictionaries that retain context and uncertainty.
+        - title: Active acquisition
+          text: Rank samples, perturbations, candidates, or experiments by the ambiguity they can resolve under real constraints.
+        - title: Closed-loop update
+          text: Connect generation, measurement, adjudication, model update, and next-choice selection in a versioned decision record.
+      methods:
+        - Data-quality, measurement, and provenance auditing
+        - Endpoint- and context-aware dataset construction
+        - Mechanism-discriminating perturbation design
+        - Active learning, information gain, disagreement, and out-of-distribution analysis
+        - Constraint-aware de novo and inverse design
+        - Prospective verification and closed-loop evidence integration
+      outputs:
+        - title: Evidence specification
+          text: A versioned definition of measurements, contexts, exclusions, uncertainty, and intended decisions.
+        - title: Structured evidence memory
+          text: A dataset or dictionary that preserves positive, negative, null, contradictory, and failed evidence with provenance.
+        - title: Acquisition policy
+          text: An inspectable rule for selecting samples, perturbations, candidates, or experiments under scientific and practical constraints.
+        - title: Closed-loop decision record
+          text: A traceable account of what was proposed, measured, adjudicated, updated, and selected next.
+      testbeds:
+        - Molecular interactions and drug discovery
+        - Proteins, peptides, and sequences
+        - Biomaterials and delivery systems
+        - Complex scientific data and mechanisms
+      horizons:
+        - label: NOW
+          title: Audit evidence and build decision-changing acquisitions
+          text: Develop provenance-aware datasets, competing-hypothesis records, perturbation logic, and active acquisition workflows in current testbeds.
+        - label: NEXT 3–5 YEARS
+          title: Connect reusable dictionaries, policies, and validated loops
+          text: Test evidence structures and acquisition policies across contexts, then connect prospective measurement and adjudication to versioned system updates.
+        - label: HORIZON
+          title: Build discovery systems that identify their next evidence gap
+          text: Explore systems that can expose ambiguity, choose decisive evidence, distinguish mechanisms, and expand valid design spaces under explicit human and experimental governance.
+      review_principles:
+        - title: Trace every measurement
+          text: Record provenance, endpoint, context, exclusions, transformations, and uncertainty before evidence enters a learning or design loop.
+        - title: Preserve negative and failure evidence
+          text: Null, contradictory, failed-QC, and both-hypotheses-fail outcomes remain first-class records rather than disappearing from the dataset.
+        - title: Compare acquisition logic
+          text: A proposed next experiment or candidate should be judged against transparent alternative selection strategies and practical constraints.
+        - title: Separate proposal from verification
+          text: Generated candidates and model predictions remain proposals until measurement, adjudication, and release review are complete.
+      visuals: []
+      projects: []
 
   - id: pillar-iii
     class: three
