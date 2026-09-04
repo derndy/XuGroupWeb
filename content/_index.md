@@ -56,7 +56,7 @@ sections:
         - SCUT undergraduate students interested in joining the group please shoot Shidang an email.
         - Undergraduate students interested in joining the group for their PhD/Master are encouraged to apply for admission to an SCUT graduate program.
         - Graduate students admitted to BMSE or other departments at SCUT, as well as those from other universities, who are interested in working with us should contact Shidang.
-        - We are also on the lookout for outstading postdoctoral researchers/research assistants with a background in any combination of the following: Biology, Artificial Intelligence, Medicine, Organic Chemistry, Computational Chemistry, Materials Science, or Physics. Python chops and experience using databases are a big plus.
+        - We are also on the lookout for outstanding postdoctoral researchers/research assistants with a background in any combination of the following: Biology, Artificial Intelligence, Medicine, Organic Chemistry, Computational Chemistry, Materials Science, or Physics. Python chops and experience using databases are a big plus.
 ---
 
 <style>
