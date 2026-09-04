@@ -1368,6 +1368,8 @@ a {
   --pillar-color: var(--lab-blue);
   --pillar-text: var(--lab-blue);
   --pillar-soft: #eef5fb;
+  --pillar-line: rgba(46, 116, 181, 0.22);
+  --pillar-glow: rgba(46, 116, 181, 0.13);
   overflow: clip;
   color: var(--lab-ink);
   background: var(--lab-white);
@@ -1377,12 +1379,16 @@ a {
   --pillar-color: var(--lab-teal);
   --pillar-text: var(--lab-teal-text);
   --pillar-soft: #edf8f6;
+  --pillar-line: rgba(42, 140, 130, 0.24);
+  --pillar-glow: rgba(42, 140, 130, 0.13);
 }
 
 .pillar-detail--three {
   --pillar-color: var(--lab-amber);
   --pillar-text: var(--lab-amber-text);
   --pillar-soft: #fff8ec;
+  --pillar-line: rgba(168, 111, 24, 0.24);
+  --pillar-glow: rgba(168, 111, 24, 0.13);
 }
 
 .pillar-detail-hero {
@@ -1390,7 +1396,7 @@ a {
   padding: 2rem 0 clamp(4.5rem, 8vw, 7rem);
   border-bottom: 1px solid var(--lab-line);
   background:
-    radial-gradient(circle at 86% 18%, rgba(46, 116, 181, 0.13), transparent 28rem),
+    radial-gradient(circle at 86% 18%, var(--pillar-glow), transparent 28rem),
     linear-gradient(180deg, #ffffff, #f6f9fc);
 }
 
@@ -1761,7 +1767,7 @@ a {
   display: grid;
   margin: 0;
   padding: 0;
-  border-top: 1px solid rgba(46, 116, 181, 0.22);
+  border-top: 1px solid var(--pillar-line);
   list-style: none;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1769,8 +1775,8 @@ a {
 .pillar-testbed-list li {
   min-height: 9rem;
   padding: 1.4rem;
-  border-right: 1px solid rgba(46, 116, 181, 0.22);
-  border-bottom: 1px solid rgba(46, 116, 181, 0.22);
+  border-right: 1px solid var(--pillar-line);
+  border-bottom: 1px solid var(--pillar-line);
   color: var(--lab-navy);
   font-size: 0.95rem;
   font-weight: 720;
@@ -1778,7 +1784,7 @@ a {
 }
 
 .pillar-testbed-list li:first-child {
-  border-left: 1px solid rgba(46, 116, 181, 0.22);
+  border-left: 1px solid var(--pillar-line);
 }
 
 .pillar-testbed-list span {
@@ -2220,7 +2226,7 @@ a {
   }
 
   .pillar-testbed-list li:nth-child(3) {
-    border-left: 1px solid rgba(46, 116, 181, 0.22);
+    border-left: 1px solid var(--pillar-line);
   }
 }
 
@@ -2322,7 +2328,7 @@ a {
 
   .pillar-testbed-list li,
   .pillar-testbed-list li:nth-child(3) {
-    border-left: 1px solid rgba(46, 116, 181, 0.22);
+    border-left: 1px solid var(--pillar-line);
   }
 
   .pillar-review__principles article:nth-child(even) {

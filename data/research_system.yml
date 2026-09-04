@@ -203,7 +203,8 @@ pillars:
     role: The mathematical lens
     title: Mathematical Data Science and Frontier Exploration
     public_title: Open what becomes identifiable and designable
-    question: What becomes possible at the mathematical frontier?
+    detail_url: /research/mathematical-frontiers/
+    question: What mathematical and data-science methods can reveal important structure and open new scientific possibilities?
     thesis: We develop mathematical and computational tools that clarify identifiability, uncertainty, mechanism, and the limits of scientific inference and design.
     focus:
       - Identifiability and alternative explanations
@@ -212,6 +213,88 @@ pillars:
       - Statistical and computational inference
       - Frontier stress tests and inverse design
     outcome: Principles and tools that reveal when patterns can become testable explanations or useful designs.
+    detail:
+      sections:
+        scope_title: Mathematical structure becomes a scientific instrument.
+        scope_text: This Pillar begins where a new abstraction, method, computational bottleneck, or consequential transfer question can change what a scientific system is able to resolve.
+        contribution_title: Methods are judged by what they make identifiable.
+        contribution_text: These are mathematical and computational directions under study, with intended artifacts—not claims that cross-domain transfer or a frontier theory has already been validated.
+        testbeds_title: Frontier settings expose mathematical bottlenecks.
+        testbeds_text: Consequential domains are used to stress assumptions, computation, uncertainty, and transfer. They are testbeds for method development, not an applications bucket.
+        horizon_title: Explore broadly while keeping present capability explicit.
+        review_title: A frontier method is credible when its assumptions and limits are visible.
+        routes_title: Connect the mathematical lens to learning, evidence, and the scientific record.
+      introduction:
+        - Some scientific questions cannot be resolved by scaling an existing model or collecting more of the same data. They require a different abstraction, a clearer identifiability argument, a new computational method, or a more revealing way to organise complex observations.
+        - This Pillar develops mathematical and data-science tools, then stress-tests them in consequential scientific settings. The aim is to expose structure, uncertainty, and limits—and to return new constraints, questions, and evidence needs to Pillars I and II.
+      responsibility: Develop the mathematical lens that interrogates and extends the scientific learning system.
+      contribution: Abstractions, statistical and computational tools, and testable stress-test frameworks that reveal structure, limits, and new scientific possibilities.
+      architecture:
+        label: Mathematical-lens conceptual framework
+        title: From a scientific bottleneck to a testable method
+        caption: This diagram describes the exploratory logic of Pillar III. It is a conceptual framework, not evidence of completed cross-domain transfer or a validated frontier theory.
+        nodes:
+          - label: Scientific bottleneck
+            text: Identify a question that existing abstractions, data structures, or computations cannot resolve adequately.
+          - label: Abstraction and assumptions
+            text: Define the mathematical objects, invariances, constraints, and conditions under which an answer is possible.
+          - label: Method or algorithm
+            text: Develop a statistical, computational, geometric, dynamical, or information-theoretic tool.
+          - label: Stress test and uncertainty
+            text: Challenge identifiability, sensitivity, computation, failure modes, and alternative explanations.
+          - label: New constraint or possibility
+            text: Return a verified limit, method, question, or capability target to the wider research system.
+      scope:
+        - title: Mathematical foundations
+          text: Develop useful abstractions through probability, statistics, optimisation, geometry, topology, graphs, dynamical systems, and information theory.
+        - title: Structure discovery
+          text: Study clustering, dimensionality reduction, anomaly discovery, representation diagnostics, and visual analytics for complex scientific observations.
+        - title: Complex data systems
+          text: Organise multimodal, multiscale, spatiotemporal, and network data while preserving context, uncertainty, and meaningful relations.
+        - title: Scientific computing and translation
+          text: Address simulation, surrogate modelling, numerical methods, computational bottlenecks, and carefully evidenced transfer across domains.
+      methods:
+        - Applied and foundational mathematical modelling
+        - Probability, statistics, optimisation, and information theory
+        - Geometry, topology, graph methods, and dynamical systems
+        - Data mining, clustering, dimensionality reduction, anomaly discovery, and visual analytics
+        - Multimodal, multiscale, spatiotemporal, and network analysis
+        - Simulation, surrogate modelling, numerical methods, uncertainty, and causal analysis
+      outputs:
+        - title: Mathematical specification
+          text: A precise statement of objects, assumptions, invariances, identifiability conditions, and limits.
+        - title: Method or computational tool
+          text: A documented algorithm, analysis, or implementation connected to a defined scientific bottleneck.
+        - title: Stress-test benchmark
+          text: A versioned evaluation system containing alternatives, controls, uncertainty checks, and failure cases.
+        - title: Translation record
+          text: Evidence showing where a method transfers, where it fails, and which new constraint or question returns to the research system.
+      testbeds:
+        - Molecular and biomedical systems
+        - Drug delivery, biomaterials, and future materials
+        - Aging, longevity, and neurotechnology
+        - Quantum and complex physical systems
+      horizons:
+        - label: NOW
+          title: Develop methods, datasets, benchmarks, and controls
+          text: Build mathematical and data-science tools around clearly defined bottlenecks in current scientific testbeds, with assumptions and failure modes recorded.
+        - label: NEXT 3–5 YEARS
+          title: Connect tools to reusable dictionaries and evaluation systems
+          text: Test primitives, operators, signals, data factories, and mathematical methods across settings without assuming transfer in advance.
+        - label: HORIZON
+          title: Explore mathematical foundations for scientific learning grammars
+          text: Investigate frameworks in which mechanisms and invariants become more discoverable and discovery systems can improve their questions and evidence strategies. This is a long-term programme, not a current capability.
+      review_principles:
+        - title: State assumptions before interpretation
+          text: Define the mathematical objects, boundary conditions, data regime, and computational approximations before assigning scientific meaning.
+        - title: Test identifiability and alternatives
+          text: Mechanistic, invariant, causal, or interpretable language requires evidence that challenges plausible competing explanations.
+        - title: Expose uncertainty and failure
+          text: Report sensitivity, approximation error, computational limits, negative transfer, and out-of-distribution behaviour as part of the method.
+        - title: Demonstrate transfer
+          text: A method is not cross-domain merely because it can be executed elsewhere; its assumptions, baselines, and scientific value must be re-tested.
+      visuals: []
+      projects: []
 
 principles:
   - title: Mechanism-aligned

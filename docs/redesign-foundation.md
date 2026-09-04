@@ -97,6 +97,17 @@ Pillar II now uses the tested detail-page system without duplicating layout code
 - a shared switcher links only the detailed Pillar routes that currently exist;
 - proposed molecular, peptide, formulation, or materials projects remain absent until their records and public-release gates are approved.
 
+## Fifth implementation slice
+
+Pillar III completes the detailed three-Pillar research set:
+
+- the page treats Mathematical Data Science and Frontier Exploration as the lens that interrogates and extends the wider system, not as an applications bucket;
+- mathematical foundations, structure discovery, complex data systems, scientific computing, and carefully evidenced translation are separated into inspectable scopes;
+- identifiability, assumptions, alternatives, uncertainty, computational limits, and negative transfer are explicit review requirements;
+- the NOW / NEXT 3–5 YEARS / HORIZON sequence distinguishes current method development from long-term scientific-learning programmes;
+- cross-domain transfer, self-improving discovery, frontier theories, and Scientific Learning Grammar remain future research targets rather than completed claims;
+- the shared switcher now connects all three detailed Pillar routes without duplicating template code.
+
 ## Audit findings for later batches
 
 1. Navigation remains tied to existing live routes. Projects, Resources, and the final grouped Outputs/Updates navigation should be introduced only when those routes contain useful content.
@@ -108,11 +119,10 @@ Pillar II now uses the tested detail-page system without duplicating layout code
 
 ## Recommended next slices
 
-1. Populate Pillar III through the same template and complete the three-Pillar detail set.
-2. Import the first approved scientific visual with responsive derivatives, caption, alt text, provenance, and rights metadata.
-3. Refactor the People page presentation while preserving profile content.
-4. Refactor News and Gallery presentation, including accessible lightbox behaviour.
-5. Build Publications and Resources architecture.
-6. Publish governed Project records and detail pages only after scientific approval.
+1. Audit and import the first approved scientific visual with responsive derivatives, caption, alt text, provenance, and rights metadata.
+2. Refactor the People page presentation while preserving profile content.
+3. Refactor News and Gallery presentation, including accessible lightbox behaviour.
+4. Build Publications and Resources architecture.
+5. Publish governed Project records and detail pages only after scientific approval.
 
 Each slice should receive a production Hugo build, internal-link audit, heading and landmark check, responsive review, and Netlify Deploy Preview review before merge.
