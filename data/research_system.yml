@@ -1,0 +1,79 @@
+pillars:
+  - id: pillar-i
+    class: one
+    numeral: I
+    role: The scientific learner
+    title: Foundational Scientific Learning-System Design
+    public_title: Design how scientific systems learn
+    question: How should a scientific system learn?
+    thesis: We design representation spaces, interaction structures, guiding signals, and learning dynamics around the distinctions that matter scientifically.
+    focus:
+      - Representation spaces that preserve relevant structure
+      - Interaction structures that expose meaningful relations
+      - Guiding signals aligned with scientific questions
+      - Learning dynamics for stable and reusable knowledge
+      - Primitives, operators, and mechanism dictionaries
+    outcome: A learner whose internal organisation can support scientific interpretation, testing, and design.
+
+  - id: pillar-ii
+    class: two
+    numeral: II
+    role: The evidence environment
+    title: Evidence Engineering and Closed-Loop Discovery & Design
+    public_title: Design what evidence systems acquire
+    question: What evidence should the system create next?
+    thesis: We design datasets, perturbations, candidates, and experiments that distinguish competing explanations and change what can be learned next.
+    focus:
+      - Data quality, provenance, and decision cohorts
+      - Data factories and evidence-producing workflows
+      - Perturbation and experimental design
+      - Active acquisition and information gain
+      - De novo, inverse, and closed-loop design
+    outcome: An evidence process that is purposeful, inspectable, and connected to the next scientific decision.
+
+  - id: pillar-iii
+    class: three
+    numeral: III
+    role: The mathematical lens
+    title: Mathematical Data Science and Frontier Exploration
+    public_title: Open what becomes identifiable and designable
+    question: What becomes possible at the mathematical frontier?
+    thesis: We develop mathematical and computational tools that clarify identifiability, uncertainty, mechanism, and the limits of scientific inference and design.
+    focus:
+      - Identifiability and alternative explanations
+      - Uncertainty and out-of-distribution behaviour
+      - Causal and mechanistic reasoning
+      - Statistical and computational inference
+      - Frontier stress tests and inverse design
+    outcome: Principles and tools that reveal when patterns can become testable explanations or useful designs.
+
+principles:
+  - title: Mechanism-aligned
+    text: Representations and objectives should preserve distinctions that matter to the scientific mechanism.
+  - title: Evidence-efficient
+    text: The next dataset or experiment should reduce uncertainty that matters to a decision.
+  - title: Uncertainty-aware
+    text: A scientific system should expose what it does not know and where its conclusions may fail.
+  - title: Compositional
+    text: Reusable primitives, interactions, and operators should support analysis across systems and scales.
+  - title: Testable
+    text: Explanations should imply controls, perturbations, or observations that could challenge them.
+  - title: Design-oriented
+    text: Learned structure should return to experiment through candidate, molecule, material, or system design.
+
+horizons:
+  - label: NOW
+    title: Build inspectable learning and evidence components
+    text: Develop and validate representations, interaction models, controls, and evidence workflows in current molecular and material testbeds.
+  - label: NEXT 3–5 YEARS
+    title: Connect components into reusable mechanism systems
+    text: Link learning structures, evidence-acquisition strategies, and mathematical tests into transferable dictionaries and operator libraries.
+  - label: HORIZON
+    title: Scientific Learning Grammar
+    text: Explore a long-term grammar for expressing how scientific systems represent, interact, learn, test, and design. This is a research horizon, not a completed theory.
+
+testbeds:
+  - Molecular interactions and drug discovery
+  - Proteins, peptides, and sequences
+  - Biomaterials and delivery systems
+  - Complex scientific data and mechanisms

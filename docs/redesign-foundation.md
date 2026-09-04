@@ -46,8 +46,21 @@ The following areas are deliberately untouched in this slice:
 - gallery data, thumbnails, zoom, rotation, and navigation logic;
 - news records;
 - contact details;
-- the legacy Research page body;
 - Netlify project ownership and GitHub connection settings.
+
+## Second implementation slice
+
+The Research landing page now:
+
+- replaces the four-topic legacy narrative with the approved three-Pillar research system;
+- keeps taxonomy, principles, horizons, and testbeds in `data/research_system.yml`;
+- renders the asymmetric system map through a reusable partial;
+- renders all Pillar modules through one reusable partial;
+- distinguishes the scientific learner, evidence environment, and mathematical lens;
+- separates NOW, NEXT 3–5 YEARS, and HORIZON statements;
+- labels Scientific Learning Grammar as a long-term research horizon rather than a completed theory;
+- routes visitors only to existing Publications, People, and Join / Collaborate pages;
+- introduces no unapproved Project claims, results, or downloadable artifacts.
 
 ## Content governance
 
@@ -64,22 +77,20 @@ Conceptual visualisations must never be presented as experimental evidence. Publ
 
 ## Audit findings for later batches
 
-1. `content/research/index.md` remains a long legacy page organised around four application-heavy topics. It needs conversion to the approved three-pillar system.
-2. Navigation remains tied to existing live routes. Projects, Resources, and the final grouped Outputs/Updates navigation should be introduced only when those routes contain useful content.
-3. People and Gallery use extensive inline styles. Their existing data and behaviour should be preserved while presentation is moved into the shared design system.
-4. The Gallery implementation should receive a later accessibility pass for dialog semantics, focus management, button labels, and touch behaviour.
-5. GitHub Pages and Netlify both contain deployment workflows. Hugo versions are aligned in this branch, but the long-term single production authority still needs confirmation.
-6. The approved conceptual images and scientific SVG maps have not yet been added to this repository.
-7. No unapproved Project records, evidence figures, performance claims, or downloads have been exposed.
+1. Navigation remains tied to existing live routes. Projects, Resources, and the final grouped Outputs/Updates navigation should be introduced only when those routes contain useful content.
+2. People and Gallery use extensive inline styles. Their existing data and behaviour should be preserved while presentation is moved into the shared design system.
+3. The Gallery implementation should receive a later accessibility pass for dialog semantics, focus management, button labels, and touch behaviour.
+4. GitHub Pages and Netlify both contain deployment workflows. Hugo versions are aligned in this branch, but the long-term single production authority still needs confirmation.
+5. The approved conceptual images and source SVG maps have not yet been imported. The current maps are responsive semantic web components.
+6. No unapproved Project records, evidence figures, performance claims, or downloads have been exposed.
 
 ## Recommended next slices
 
-1. Research landing page and responsive research-system map.
-2. Three Pillar page templates and route structure.
-3. Curated conceptual image import with responsive derivatives, captions, and alt text.
-4. People page visual refactor while preserving profile content.
-5. News and Gallery visual refactor with accessible lightbox behaviour.
-6. Publications and Resources architecture.
-7. Governed Project records and detail pages after scientific approval.
+1. Three detailed Pillar page templates and route structure.
+2. Curated conceptual image import with responsive derivatives, captions, and alt text.
+3. People page visual refactor while preserving profile content.
+4. News and Gallery visual refactor with accessible lightbox behaviour.
+5. Publications and Resources architecture.
+6. Governed Project records and detail pages after scientific approval.
 
 Each slice should receive a production Hugo build, internal-link audit, heading and landmark check, responsive review, and Netlify Deploy Preview review before merge.

@@ -59,6 +59,6 @@ Project-specific scientific claims must remain off the public site until their s
 
 ## Current redesign
 
-The first redesign slice is maintained on `design/site-foundation-v1`. It establishes the visual system, accessible global shell, semantic homepage, research-pillar overview, evidence loop, testbed framing, recruitment pathway, and a genuine 404 recovery page without altering existing People, Gallery, News, or Publication records.
+The redesign is maintained on `design/site-foundation-v1`. The current draft establishes the visual system, accessible global shell, semantic homepage, integrated Research landing page, governed three-Pillar data model, evidence loop, research horizons, testbed framing, recruitment pathway, and a genuine 404 recovery page without altering existing People, Gallery, News, or Publication records.
 
 See [`docs/redesign-foundation.md`](docs/redesign-foundation.md) for the baseline audit and implementation boundaries.
