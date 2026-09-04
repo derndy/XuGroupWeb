@@ -5,6 +5,7 @@ pillars:
     role: The scientific learner
     title: Foundational Scientific Learning-System Design
     public_title: Design how scientific systems learn
+    detail_url: /research/learning-system-design/
     question: How should a scientific system learn?
     thesis: We design representation spaces, interaction structures, guiding signals, and learning dynamics around the distinctions that matter scientifically.
     focus:
@@ -14,6 +15,78 @@ pillars:
       - Learning dynamics for stable and reusable knowledge
       - Primitives, operators, and mechanism dictionaries
     outcome: A learner whose internal organisation can support scientific interpretation, testing, and design.
+    detail:
+      introduction:
+        - Many scientific models inherit their learning problem from convenient data structures or benchmark conventions. We begin instead with the scientific distinctions a system must preserve, the interactions it must expose, and the evidence that could challenge what it has learned.
+        - This Pillar studies the architecture of the learner itself. Representation space, interaction structure, guiding signal, and learning dynamics are designed together so that prediction can support interpretation, testing, and eventually scientific design.
+      responsibility: Design the internal organisation of the scientific learner.
+      contribution: Learning components whose structure can be inspected, challenged, and reused across scientific testbeds.
+      architecture:
+        label: Conceptual framework
+        title: From a scientific question to a testable mechanism
+        caption: This diagram describes the design logic of Pillar I. It is a conceptual framework, not an experimental result.
+        nodes:
+          - label: Scientific question
+            text: Define the distinction, mechanism, or decision the learner must support.
+          - label: Representation space
+            text: Encode states so scientifically relevant structure can be preserved.
+          - label: Interaction structure
+            text: Make the relations that may drive behaviour explicit and inspectable.
+          - label: Learning dynamics
+            text: Update structure from evidence while tracking stability and uncertainty.
+          - label: Testable mechanism
+            text: Return an explanation, control, or design implication to evidence.
+      scope:
+        - title: Representation space
+          text: Organise molecular, sequence, material, or multimodal states around distinctions that matter to the scientific question.
+        - title: Interaction structure
+          text: Represent pairwise, collective, geometric, or cross-scale relations without collapsing them into undifferentiated features.
+        - title: Guiding signal
+          text: Use labels, constraints, perturbations, and weak or structured supervision that reflect the intended scientific inference.
+        - title: Learning dynamics
+          text: Study how representations and interactions stabilise, transfer, fail, and change as new evidence arrives.
+      methods:
+        - Structured and geometric representation learning
+        - Interaction-aware and pair-specific modelling
+        - Contrastive, weakly guided, and multi-view learning
+        - Stability, sensitivity, and uncertainty analysis
+        - Perturbation-centred interpretation and controls
+        - Reusable primitives, operators, and mechanism dictionaries
+      outputs:
+        - title: Representation specification
+          text: A versioned account of states, invariances, exclusions, and scientific meaning.
+        - title: Interaction map
+          text: An inspectable description of which relations are represented and how alternatives are tested.
+        - title: Evaluation contract
+          text: Frozen splits, controls, uncertainty checks, and stop conditions tied to the scientific question.
+        - title: Reusable learning component
+          text: A documented primitive, operator, or module that can be challenged in more than one testbed.
+      testbeds:
+        - Molecular interactions and drug discovery
+        - Proteins, peptides, and sequences
+        - Biomaterials and delivery systems
+        - Complex scientific data and mechanisms
+      horizons:
+        - label: NOW
+          title: Make learning components inspectable
+          text: Build and audit representations, interaction structures, guiding signals, and strict evaluation contracts in current testbeds.
+        - label: NEXT 3–5 YEARS
+          title: Connect reusable primitives and operators
+          text: Test which learning components remain meaningful across systems, scales, and evidence regimes.
+        - label: HORIZON
+          title: Contribute building blocks to a Scientific Learning Grammar
+          text: Explore whether reusable spaces, interactions, signals, and operators can form a broader language for scientific learning. This is a research horizon, not a completed theory.
+      review_principles:
+        - title: Separate structure from shortcuts
+          text: Use strict splits, matched controls, and null tests that challenge easier alternative explanations.
+        - title: Report stability and failure
+          text: Treat sensitivity, uncertainty, negative evidence, and boundary conditions as part of the scientific result.
+        - title: Require a testable consequence
+          text: Interpretation should imply a perturbation, control, observation, or design decision that could be wrong.
+        - title: Preserve traceability
+          text: Public statements must resolve to a reviewed record, evidence object, figure, and responsible owner.
+      visuals: []
+      projects: []
 
   - id: pillar-ii
     class: two

@@ -27,6 +27,9 @@
           <li>{{ . }}</li>
         {{ end }}
       </ul>
+      {{ with $pillar.detail_url }}
+        <a class="research-pillar__link" href="{{ . | relURL }}">Explore Pillar {{ $pillar.numeral }} <span aria-hidden="true">→</span></a>
+      {{ end }}
     </div>
   </div>
 </article>

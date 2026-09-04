@@ -21,12 +21,15 @@ The generated site is written to `public/`.
 
 ```text
 assets/scss/template.scss     Shared design tokens and site styling
+audit/                        Non-published legacy assets and review material
 config/_default/              Site, menu, module, and metadata settings
 content/_index.md             Homepage metadata
 content/research/             Research content
 content/person/               Member profiles
 content/publication/          Publication records
 content/post/                 News records
+data/research_system.yml      Three-Pillar research content model
+data/research_assets.yml      Scientific-visual inventory and release state
 layouts/                      Custom page templates and partials
 static/images/                Public photographs and fixed web assets
 static/data/                  Gallery data
@@ -59,6 +62,6 @@ Project-specific scientific claims must remain off the public site until their s
 
 ## Current redesign
 
-The redesign is maintained on `design/site-foundation-v1`. The current draft establishes the visual system, accessible global shell, semantic homepage, integrated Research landing page, governed three-Pillar data model, evidence loop, research horizons, testbed framing, recruitment pathway, and a genuine 404 recovery page without altering existing People, Gallery, News, or Publication records.
+The redesign is maintained on `design/site-foundation-v1`. The current draft establishes the visual system, accessible global shell, semantic homepage, integrated Research landing page, governed three-Pillar data model, the first reusable Pillar detail page, scientific-visual release gates, evidence loop, research horizons, testbed framing, recruitment pathway, and a genuine 404 recovery page without altering existing People, Gallery, News, or Publication records.
 
 See [`docs/redesign-foundation.md`](docs/redesign-foundation.md) for the baseline audit and implementation boundaries.

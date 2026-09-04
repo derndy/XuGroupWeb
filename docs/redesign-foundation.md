@@ -75,22 +75,34 @@ Public project copy must be generated only from an approved canonical record. Ke
 
 Conceptual visualisations must never be presented as experimental evidence. Public scientific figures require a caption, alternative text, provenance, rights status, and a named or versioned evidence source.
 
+## Third implementation slice
+
+The first detailed Pillar route now provides the reusable page architecture for Pillar I:
+
+- one canonical data record supplies the landing-page summary and detail-page content;
+- the page separates question, responsibility, scope, method families, intended artifacts, testbeds, horizons, and evidence discipline;
+- the architecture figure is explicitly labelled as a conceptual framework, not an experimental result;
+- optional scientific visuals pass through a build-time metadata and approval gate;
+- the two legacy Research images are inventoried as `BLOCKED / REVIEW_REQUIRED` and remain unrendered;
+- no project card, performance result, dataset, code artifact, or download has been made public.
+
 ## Audit findings for later batches
 
 1. Navigation remains tied to existing live routes. Projects, Resources, and the final grouped Outputs/Updates navigation should be introduced only when those routes contain useful content.
 2. People and Gallery use extensive inline styles. Their existing data and behaviour should be preserved while presentation is moved into the shared design system.
 3. The Gallery implementation should receive a later accessibility pass for dialog semantics, focus management, button labels, and touch behaviour.
 4. GitHub Pages and Netlify both contain deployment workflows. Hugo versions are aligned in this branch, but the long-term single production authority still needs confirmation.
-5. The approved conceptual images and source SVG maps have not yet been imported. The current maps are responsive semantic web components.
+5. Approved scientific images and source SVG maps have not yet been imported. The current maps are responsive semantic web components; legacy PNG files remain blocked pending provenance and rights review.
 6. No unapproved Project records, evidence figures, performance claims, or downloads have been exposed.
 
 ## Recommended next slices
 
-1. Three detailed Pillar page templates and route structure.
-2. Curated conceptual image import with responsive derivatives, captions, and alt text.
-3. People page visual refactor while preserving profile content.
-4. News and Gallery visual refactor with accessible lightbox behaviour.
-5. Publications and Resources architecture.
-6. Governed Project records and detail pages after scientific approval.
+1. Populate Pillar II through the tested detail-page template.
+2. Populate Pillar III through the same template and complete cross-Pillar navigation.
+3. Import the first approved scientific visual with responsive derivatives, caption, alt text, provenance, and rights metadata.
+4. Refactor the People page presentation while preserving profile content.
+5. Refactor News and Gallery presentation, including accessible lightbox behaviour.
+6. Build Publications and Resources architecture.
+7. Publish governed Project records and detail pages only after scientific approval.
 
 Each slice should receive a production Hugo build, internal-link audit, heading and landmark check, responsive review, and Netlify Deploy Preview review before merge.
