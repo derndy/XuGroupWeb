@@ -8,6 +8,7 @@ This checks generated structure/preservation, not browser layout or remote URLs.
 import argparse
 import base64
 import hashlib
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -101,6 +102,21 @@ def local_file(build, href):
     return target
 
 
+def validate_doi_links(document, context):
+    """Reject URL-in-DOI mistakes in both index and detail-page buttons.
+
+    This is a syntax gate, not proof that a DOI exists or identifies the work.
+    """
+    for link in document.find(lambda node: node.tag == "a" and normalized(node) == "DOI"):
+        href = link.attrs.get("href", "")
+        url = urlsplit(href)
+        identifier = unquote(url.path.lstrip("/"))
+        require(url.scheme == "https" and url.netloc == "doi.org"
+                and not url.query and not url.fragment
+                and re.fullmatch(r"10\.\d{4,9}/\S+", identifier),
+                f"Malformed DOI link in {context}: {href}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("build", type=Path)
@@ -110,6 +126,7 @@ def main():
     mains = doc.find(lambda node: node.tag == "main")
     require(len(mains) == 1, "Expected one main landmark")
     main_node = mains[0]
+    validate_doi_links(main_node, "publication index")
     require(len(main_node.find(lambda node: node.tag == "h1")) == 1, "Expected one H1")
     nodes = list(main_node.walk())
     ids = [node.attrs["id"] for node in doc.walk() if "id" in node.attrs]
@@ -142,7 +159,9 @@ def main():
     require(count.attrs.get("role") == "status", "Missing live result status")
 
     for record in records:
-        local_file(args.build, signature(record)[1])
+        record_url = signature(record)[1]
+        record_file = local_file(args.build, record_url)
+        validate_doi_links(Document(record_file).root, record_url)
         for link in record.find(lambda node: node.tag == "a"):
             if "data-filename" in link.attrs:
                 local_file(args.build, link.attrs["data-filename"])

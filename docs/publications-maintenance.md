@@ -16,7 +16,7 @@ The Publications index reads the existing Hugo page bundles. It is a text-first 
 | `tests/publications.test.mjs` | Dependency-free search and UI-state tests |
 | `scripts/audit-publications.py` | Dependency-free generated-HTML and baseline-preservation checks |
 
-The single-record templates, publication bundles, author taxonomy, and BibTeX import workflow are unchanged by this slice. The index does not infer Pillar membership, highlight all existing `featured` flags as editorial selections, or describe working papers, patents, or theses as peer-reviewed journal articles.
+The single-record templates, author taxonomy, and BibTeX import workflow are unchanged. Slice 09 preserved the publication bundles; Slice 10 makes four source-verified record corrections documented in [the DOI audit](publication-link-audit-2026-09-05.md). The index does not infer Pillar membership, highlight all existing `featured` flags as editorial selections, or describe working papers, patents, or theses as peer-reviewed journal articles.
 
 ## Display and interaction contract
 
@@ -41,7 +41,7 @@ Adding a figure to the index is a separate reviewed change. Before doing so, con
 1. Open a separate branch from the agreed working baseline. Do not push directly to `main`.
 2. For an existing publication, open its bundle and compare its title, author order, year, venue, DOI, abstract, and citation with the authoritative publisher/repository source. Record the source and reviewer in the review issue.
 3. For a new record, create a new bundle using the existing Hugo publication schema and set `draft: true`. Do not clone another paper's results, author list, figure, DOI, or citation as if they belong to the new work.
-4. Resolve disagreements explicitly. Leave uncertain metadata unchanged and flag it for the PI; do not infer a DOI from a URL, retitle a paper, reorder authors, or silently standardize dates.
+4. Resolve disagreements explicitly. Leave uncertain metadata unchanged and flag it for the PI; do not infer a DOI from a URL, retitle a paper, reorder authors, or silently standardize dates. Store a verified DOI as the identifier only (`10.…/…`), without `https://doi.org/`. An HTML conference page belongs in a named custom link, not `doi` or `url_pdf`. Check whether the record is the paper, a cover picture, or a frontispiece before selecting its DOI.
 5. Keep existing folder names, slugs, and file paths stable. A required URL change needs an explicit redirect and inbound-link audit.
 6. Update `cite.bib` consistently with approved metadata. Check each supplied PDF, DOI, code, dataset, and publisher destination separately; a build cannot verify an external URL's meaning or availability.
 7. Add or replace imagery only after the figure review above. Do not automatically reuse figures from other research materials.
@@ -55,6 +55,7 @@ Use Hugo Extended **0.139.4**, Node.js with `node:test` support, and Python 3. N
 
 ```bash
 node --test tests/publications.test.mjs
+python -B -m unittest discover -s tests -p 'test_publication_links.py'
 publication_build_dir=$(mktemp -d)
 HUGO_ENV=production hugo --gc --minify -b https://xushidang-lab.netlify.app/ -d "$publication_build_dir"
 python scripts/audit-publications.py "$publication_build_dir"
@@ -69,19 +70,21 @@ python scripts/audit-publications.py "$publication_build_dir" --before /absolute
 
 The comparison checks record order, titles, author text/links, record URLs, attachment controls, and citation file bytes. Also review the source diff: it remains the authority for unchanged metadata, abstracts, figures, and other bundle resources.
 
-The script checks generated HTML, local record/citation destinations, filter labels, initial no-JavaScript visibility, derived groups/types/counts, anchors, and script integrity. It does **not** test rendered layout, browser accessibility behavior, live external URLs, citation accuracy, or scientific validity. The Node DOM-contract fixture is likewise not a browser test.
+The script checks generated HTML, local record/citation destinations, filter labels, initial no-JavaScript visibility, derived groups/types/counts, anchors, script integrity, and DOI-link syntax in the index and every linked publication detail page. It does **not** test rendered layout, browser accessibility behavior, live external URLs, citation accuracy, or scientific validity. The Node DOM-contract fixture is likewise not a browser test.
 
-## Slice 09 inventory and deferred source review
+`--before` is a strict presentation-preservation check: it must fail if intentional metadata or citation corrections are compared with their older versions. For metadata work, document and review each expected difference; do not weaken the baseline check to make the change pass. Use the corrected build as the baseline for the next presentation-only slice.
+
+## Inventory and source-review status
 
 At the baseline, 78 records span 2011–2024: 74 journal articles and one each of working paper, conference paper, thesis, and patent. There are 78 citation files and 74 featured images. These are an inventory of existing records, not a newly verified claim about completeness or scientific status.
 
-The audit identified four existing DOI-field issues, preserved unchanged in this presentation-only slice:
+Slice 09 identified four DOI-field issues. Slice 10 resolves them as follows; the source evidence and exact scope are in [the DOI audit](publication-link-audit-2026-09-05.md).
 
-| Existing record | Current issue | Required review |
+| Existing record | Verified record | Applied correction |
 | --- | --- | --- |
-| Folder beginning `67- Wiley Online Library-2018-Photoacoustic Imaging` | `doi` contains `https://doi.org/10.1002/adma.201800766` | Verify the authoritative DOI and citation; the theme currently prefixes another DOI resolver URL. |
-| Folder beginning `73-Chem Mater-2020-All-in-one molecular AIE theranostics` | `doi` contains `https://doi.org/10.1021/acs.chemmater.0c01187` | Verify the authoritative DOI and citation before normalizing the field. |
-| Folder beginning `76-Small-2016-Cell Tracking Organic Nanoparticles` | `doi` contains `https://doi.org/10.1002/smll.201601630` | Verify the authoritative DOI and citation before normalizing the field. |
-| Folder beginning `79-Virtual AIChE Annual Meeting-2020-Physically Informed` | `doi` contains an AIChE meeting-page URL, not a DOI identifier | Confirm whether a DOI exists; retain the verified meeting URL in an appropriate link field after approval. Do not invent a DOI. |
+| Folder beginning `67- Wiley Online Library-2018-Photoacoustic Imaging` | Frontispiece | Use `10.1002/adma.201870214`; retain the underlying research article as a separate named link. |
+| Folder beginning `73-Chem Mater-2020-All-in-one molecular AIE theranostics` | Chemistry of Materials article | Normalize `10.1021/acs.chemmater.0c01187`; align the title, venue, first-online date, and citation with publisher-deposited metadata. |
+| Folder beginning `76-Small-2016-Cell Tracking Organic Nanoparticles` | Cover picture | Use `10.1002/smll.201670244`; correct reversed citation volume/issue and label the underlying-paper PDF separately. |
+| Folder beginning `79-Virtual AIChE Annual Meeting-2020-Physically Informed` | Conference abstract | Remove the non-DOI value and misleading PDF button; link to the verified organizer abstract and include its URL in BibTeX. |
 
-These are source-review items, not newly introduced regressions and not fixed by the index redesign. Keep the PR in draft and resolve them in a bounded metadata-audit slice before treating the bibliography as link-verified.
+Keep the PR in draft. These four corrections do not certify all 78 records or all external downloads. A subsequent bibliography pass should distinguish cover/frontispiece records from research articles throughout the archive and review remaining venue/date/citation consistency without inventing new records or changing published routes.

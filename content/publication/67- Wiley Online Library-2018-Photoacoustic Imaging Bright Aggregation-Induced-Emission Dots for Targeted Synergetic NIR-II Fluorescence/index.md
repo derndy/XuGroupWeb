@@ -32,7 +32,7 @@ authors:
 #   - 'Corresponding author'
 
 date: '2018-07-16T00:00:00Z'
-doi: 'https://doi.org/10.1002/adma.201800766'
+doi: '10.1002/adma.201870214'
 
 # Schedule page publish date (NOT publication's date).
 publishDate: '2018-07-19T00:00:00Z'
@@ -55,12 +55,12 @@ tags: []
 # Display this page in the Featured widget?
 featured: true
 
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
+# This record describes the frontispiece; retain a separate underlying-paper link.
+links:
+  - name: Research article
+    url: https://onlinelibrary.wiley.com/doi/10.1002/adma.201800766
 
-url_pdf: 'https://onlinelibrary.wiley.com/doi/10.1002/adma.201800766'
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''

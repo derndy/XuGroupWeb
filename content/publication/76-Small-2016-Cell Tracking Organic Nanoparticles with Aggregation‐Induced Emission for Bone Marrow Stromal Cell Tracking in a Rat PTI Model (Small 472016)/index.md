@@ -32,7 +32,7 @@ authors:
 #   - 'Corresponding author'
 
 date: '2016-12-15T00:00:00Z'
-doi: 'https://doi.org/10.1002/smll.201601630'
+doi: '10.1002/smll.201670244'
 
 # Schedule page publish date (NOT publication's date).
 publishDate: '2016-12-21T00:00:00Z'
@@ -55,12 +55,12 @@ tags: []
 # Display this page in the Featured widget?
 featured: true
 
-# Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
+# This record describes the cover picture; the PDF belongs to the underlying paper.
+links:
+  - name: Research article PDF
+    url: https://onlinelibrary.wiley.com/doi/epdf/10.1002/smll.201601630
 
-url_pdf: 'https://onlinelibrary.wiley.com/doi/epdf/10.1002/smll.201601630'
+url_pdf: ''
 url_code: ''
 url_dataset: ''
 url_poster: ''
