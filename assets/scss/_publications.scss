@@ -211,6 +211,11 @@
     font-size: 0.75rem;
   }
 
+  .publication-record__type--artwork {
+    color: var(--lab-teal-text);
+    font-weight: 760;
+  }
+
   .publication-record h3 {
     margin: 0.55rem 0 0.65rem;
     font-size: clamp(1.1rem, 2.1vw, 1.35rem);
@@ -325,5 +330,42 @@
     .publication-record {
       padding-block: 1.25rem;
     }
+  }
+}
+
+// Scope the record explanation to publication detail pages, outside the index.
+.publication-detail .publication-context {
+  margin-block: 1.5rem 0.5rem;
+  padding: 1.1rem 1.25rem;
+  border-left: 3px solid var(--lab-teal-text);
+  background: var(--lab-surface);
+  color: var(--lab-ink);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+
+  p {
+    margin: 0 0 0.6rem;
+  }
+
+  .publication-context__label {
+    color: var(--lab-teal-text);
+    font-size: 0.875rem;
+    font-weight: 760;
+  }
+
+  a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--lab-blue);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  a:focus-visible {
+    outline: 3px solid var(--lab-blue);
+    outline-offset: 3px;
   }
 }

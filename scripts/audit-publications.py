@@ -152,7 +152,9 @@ def main():
     require(dates == sorted(dates, reverse=True), "Publication ordering is not newest first")
     require({node.attrs["data-year"] for node in records} == {node.attrs["data-publication-year"] for node in groups}, "Year groups do not match records")
     type_select = forms[0].find(lambda node: node.attrs.get("id") == "publication-type")[0]
-    types = {node.attrs.get("value") or "" for node in type_select.find(lambda node: node.tag == "option")} - {""}
+    type_labels = {node.attrs["value"]: normalized(node)
+                   for node in type_select.find(lambda node: node.tag == "option" and node.attrs.get("value"))}
+    types = set(type_labels)
     require(types == {kind for node in records for kind in node.attrs["data-types"].split()}, "Type options do not match records")
     count = main_node.find(lambda node: "data-publication-count" in node.attrs)[0]
     require(normalized(count) == f"Showing {len(records)} of {len(records)} records", "Incorrect initial result count")
@@ -161,7 +163,34 @@ def main():
     for record in records:
         record_url = signature(record)[1]
         record_file = local_file(args.build, record_url)
-        validate_doi_links(Document(record_file).root, record_url)
+        detail = Document(record_file).root
+        validate_doi_links(detail, record_url)
+        require(len(detail.find(lambda node: node.tag == "main")) == 1, f"Expected one main in {record_url}")
+        require(len(detail.find(lambda node: node.tag == "h1")) == 1, f"Expected one H1 in {record_url}")
+        record_types = record.attrs["data-types"].split()
+        labels = record.find(lambda node: "data-publication-type-label" in node.attrs)
+        require([normalized(node) for node in labels] == ([" · ".join(type_labels[key] for key in record_types)] if record_types else []),
+                f"Index and filter type labels disagree in {record_url}")
+        detail_types = detail.find(lambda node: node.tag == "a" and "data-publication-type-link" in node.attrs)
+        require([(urlsplit(node.attrs["href"]).fragment, normalized(node)) for node in detail_types]
+                == [(key, type_labels[key]) for key in record_types], f"Detail type mismatch in {record_url}")
+        for link in detail_types:
+            require(local_file(args.build, link.attrs["href"]) == args.build / "publication/index.html",
+                    f"Detail type must return to the publication index: {record_url}")
+        kind = record.attrs.get("data-publication-kind", "")
+        contexts = detail.find(lambda node: node.tag == "aside" and "data-publication-kind" in node.attrs)
+        require(len(contexts) == (1 if kind else 0), f"Unexpected or missing record explanation in {record_url}")
+        if kind:
+            context = contexts[0]
+            require(record_types == [kind] and context.attrs["data-publication-kind"] == kind,
+                    f"Inconsistent record explanation in {record_url}")
+            related = context.find(lambda node: node.tag == "a")
+            record_links = [(normalized(node), node.attrs.get("href"))
+                            for node in record.find(lambda node: node.tag == "a")]
+            require(len(related) == 1 and (normalized(related[0]), related[0].attrs.get("href")) in record_links,
+                    f"Explanation must reuse the record's research link in {record_url}")
+            source = urlsplit(related[0].attrs["href"])
+            require(source.scheme == "https" and source.netloc, f"Invalid research source in {record_url}")
         for link in record.find(lambda node: node.tag == "a"):
             if "data-filename" in link.attrs:
                 local_file(args.build, link.attrs["data-filename"])
@@ -190,7 +219,7 @@ def main():
                 require(local_file(args.before, href).read_bytes() == local_file(args.build, href).read_bytes(), f"Citation file changed: {href}")
         print("PASS: baseline titles, author text/links, order, routes, attachment controls, and citation bytes preserved")
 
-    print(f"PASS: {len(records)} records, {len(groups)} years, {len(types)} types; structure, local record/citation paths, and script integrity")
+    print(f"PASS: {len(records)} records, {len(groups)} years, {len(types)} types; index/detail classification, structure, local record/citation paths, and script integrity")
 
 
 if __name__ == "__main__":

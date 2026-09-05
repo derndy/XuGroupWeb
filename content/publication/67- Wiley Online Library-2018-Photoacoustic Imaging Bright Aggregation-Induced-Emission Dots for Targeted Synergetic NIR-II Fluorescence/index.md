@@ -41,6 +41,8 @@ publishDate: '2018-07-19T00:00:00Z'
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
 # Enter a publication type from the CSL standard.
 publication_types: ['article-journal']
+# Verified in docs/publication-link-audit-2026-09-05.md; CSL type is preserved.
+publication_kind: frontispiece
 
 # Publication name and optional abbreviated publication name.
 publication: In *Advanced Materials*

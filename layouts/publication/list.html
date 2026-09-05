@@ -7,10 +7,9 @@
   {{- if not (in $years $year) -}}
     {{- $years = $years | append $year -}}
   {{- end -}}
-  {{- range .GetTerms "publication_types" -}}
-    {{- $key := .Data.Term | urlize -}}
-    {{- $label := i18n (printf "pub_%s" (replace $key "-" "_")) | default (title .Data.Term) -}}
-    {{- $types = merge $types (dict $key $label) -}}
+  {{- $classification := partial "publications/classification.html" . -}}
+  {{- range $index, $key := $classification.keys -}}
+    {{- $types = merge $types (dict $key (index $classification.labels $index)) -}}
   {{- end -}}
 {{- end -}}
 

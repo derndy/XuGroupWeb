@@ -11,12 +11,15 @@ The Publications index reads the existing Hugo page bundles. It is a text-first 
 | `content/publication/<record>/cite.bib` | Existing downloadable citation |
 | `layouts/publication/list.html` | Newest-first year index and filter controls |
 | `layouts/partials/publications/record.html` | One source-backed record and existing attachment controls |
-| `assets/scss/_publications.scss` | Styles scoped to this index, imported by `template.scss` |
+| `layouts/partials/publications/classification.html` | Shared display labels/keys and validation for the index, filters, and details |
+| `data/publication_kinds.yaml` | Reviewed display refinements and explanations for artwork records |
+| `layouts/publication/single.html` | Detail-page type links and artwork explanation; retains theme header/footer hooks |
+| `assets/scss/_publications.scss` | Styles scoped to the index and detail explanation, imported by `template.scss` |
 | `assets/js/publications.mjs` | Progressive search, type/year intersection, count, reset, and bookmark support |
 | `tests/publications.test.mjs` | Dependency-free search and UI-state tests |
 | `scripts/audit-publications.py` | Dependency-free generated-HTML and baseline-preservation checks |
 
-The single-record templates, author taxonomy, and BibTeX import workflow are unchanged. Slice 09 preserved the publication bundles; Slice 10 makes four source-verified record corrections documented in [the DOI audit](publication-link-audit-2026-09-05.md). The index does not infer Pillar membership, highlight all existing `featured` flags as editorial selections, or describe working papers, patents, or theses as peer-reviewed journal articles.
+The author taxonomy and BibTeX import workflow are unchanged. Slice 09 preserved the publication bundles; Slice 10 makes four source-verified record corrections documented in [the DOI audit](publication-link-audit-2026-09-05.md). Slice 11 refines the display classification of the two verified artwork records and supplies a publication detail template based on the pinned theme. The index does not infer Pillar membership, highlight all existing `featured` flags as editorial selections, or describe working papers, patents, or theses as peer-reviewed journal articles.
 
 ## Display and interaction contract
 
@@ -29,6 +32,23 @@ The single-record templates, author taxonomy, and BibTeX import workflow are unc
 - Derive counts, year groups, and type choices from the built records, not hard-coded totals. Hide empty year groups and their jump links after filtering; announce result counts without moving focus.
 - Preserve legacy type fragments, including `#article-journal` and `#working%20paper`. The display slug `working-paper` does not rewrite the source taxonomy value `Working paper`.
 - Do not reuse the theme's Isotope container/selectors: this page uses natural document flow and a small independent filter module. Citation-modal behavior remains supplied by the theme.
+
+## Artwork classification and research-paper links
+
+`publication_types` remains the canonical CSL taxonomy used by existing imports and archives. The optional `publication_kind` refines its website presentation only when the identity has been verified. Do not infer this field from an image filename, a thumbnail, or the presence of a featured image.
+
+| Verified bundle | `publication_kind` | Display/filter label | Required existing research link |
+| --- | --- | --- | --- |
+| `67- Wiley Online Library-2018-Photoacoustic Imaging…` | `frontispiece` | Frontispiece | Research article |
+| `76-Small-2016-Cell Tracking Organic Nanoparticles…` | `cover-picture` | Cover picture | Research article PDF |
+
+Both retain `publication_types: ['article-journal']` and their existing DOI/BibTeX identity. On the index, their display types replace the generic Journal article label; filters and detail-page type links use the same shared classification. The remaining 76 records keep their source-derived labels. Consequently, the display filter contains 72 Journal article entries, one Frontispiece, one Cover picture, and the four existing non-journal types. These counts describe stored classifications, not 72 newly verified research papers. Legacy CSL taxonomy archives still include all 74 `article-journal` records.
+
+Each artwork detail page explains that its DOI and citation identify the frontispiece or cover and provides the existing underlying-paper link. This explanation is available without JavaScript. The title, authors, featured image, abstract, venue, citation controls, content body, and footer still use the existing data and theme hooks. All publication details now have one main landmark and an H2 for the abstract.
+
+When reviewing another artwork record, verify both identities in publisher metadata, record the evidence in the review, and set only a supported `publication_kind`. Keep exactly one custom link whose name matches the table, pointing to the verified research-paper destination. The build fails on an unknown kind, incompatible CSL type, missing/duplicate required link, or a non-HTTPS research link. A new kind requires a reviewed registry entry and matching filter/detail checks; do not silently fall back to Journal article when an explicit kind is misspelled.
+
+Type links use `/publication/#frontispiece` and `/publication/#cover-picture`. JavaScript initializes the matching filter; without it, the complete index remains readable. `#article-journal` continues to work and now excludes the two explicitly refined artwork entries.
 
 ## Image policy for this slice
 
@@ -45,8 +65,8 @@ Adding a figure to the index is a separate reviewed change. Before doing so, con
 5. Keep existing folder names, slugs, and file paths stable. A required URL change needs an explicit redirect and inbound-link audit.
 6. Update `cite.bib` consistently with approved metadata. Check each supplied PDF, DOI, code, dataset, and publisher destination separately; a build cannot verify an external URL's meaning or availability.
 7. Add or replace imagery only after the figure review above. Do not automatically reuse figures from other research materials.
-8. Run the tests and build below. If editing presentation only, compare with a baseline build and require no differences in publication source bundles.
-9. Review the Netlify Deploy Preview at 320 px, 768 px, and a wide viewport. Test long titles/authors, keyboard focus, search paste/clear, all five current types, intersecting filters, zero results, Clear filters, year anchors, legacy type bookmarks, citation opening/copy/download, and direct BibTeX download. Disable JavaScript and confirm all records remain readable.
+8. Run the tests and build below. For presentation changes, compare with a baseline build; any source change must be limited to the explicitly reviewed field. For a kind refinement, preserve every existing bibliographic field, citation file, and figure byte.
+9. Review the Netlify Deploy Preview at 320 px, 768 px, and a wide viewport. Test long titles/authors, keyboard focus, search paste/clear, all seven current types, intersecting filters, zero results, Clear filters, year anchors, type bookmarks, citation opening/copy/download, and direct BibTeX download. Check the two artwork explanations and their research-paper links. Disable JavaScript and confirm all records remain readable.
 10. Request PI/content review before changing a draft to public or merging. A successful preview build is not publication approval.
 
 ## Repeatable local checks
@@ -70,13 +90,13 @@ python scripts/audit-publications.py "$publication_build_dir" --before /absolute
 
 The comparison checks record order, titles, author text/links, record URLs, attachment controls, and citation file bytes. Also review the source diff: it remains the authority for unchanged metadata, abstracts, figures, and other bundle resources.
 
-The script checks generated HTML, local record/citation destinations, filter labels, initial no-JavaScript visibility, derived groups/types/counts, anchors, script integrity, and DOI-link syntax in the index and every linked publication detail page. It does **not** test rendered layout, browser accessibility behavior, live external URLs, citation accuracy, or scientific validity. The Node DOM-contract fixture is likewise not a browser test.
+The script checks generated HTML, local record/citation destinations, filter labels, initial no-JavaScript visibility, derived groups/types/counts, anchors, script integrity, and DOI-link syntax in the index and every linked publication detail page. It also requires one main/H1 per detail page, matching index/filter/detail labels, and an explanation with the existing research link for every explicitly refined record. It does **not** test rendered layout, browser accessibility behavior, live external URLs, citation accuracy, or scientific validity. The Node DOM-contract fixture is likewise not a browser test.
 
 `--before` is a strict presentation-preservation check: it must fail if intentional metadata or citation corrections are compared with their older versions. For metadata work, document and review each expected difference; do not weaken the baseline check to make the change pass. Use the corrected build as the baseline for the next presentation-only slice.
 
 ## Inventory and source-review status
 
-At the baseline, 78 records span 2011–2024: 74 journal articles and one each of working paper, conference paper, thesis, and patent. There are 78 citation files and 74 featured images. These are an inventory of existing records, not a newly verified claim about completeness or scientific status.
+At the baseline, 78 records span 2011–2024: 74 CSL `article-journal` records (including the two verified artwork entries) and one each of working paper, conference paper, thesis, and patent. There are 78 citation files and 74 featured images. These are an inventory of existing records, not a newly verified claim about completeness or scientific status.
 
 Slice 09 identified four DOI-field issues. Slice 10 resolves them as follows; the source evidence and exact scope are in [the DOI audit](publication-link-audit-2026-09-05.md).
 
@@ -87,4 +107,6 @@ Slice 09 identified four DOI-field issues. Slice 10 resolves them as follows; th
 | Folder beginning `76-Small-2016-Cell Tracking Organic Nanoparticles` | Cover picture | Use `10.1002/smll.201670244`; correct reversed citation volume/issue and label the underlying-paper PDF separately. |
 | Folder beginning `79-Virtual AIChE Annual Meeting-2020-Physically Informed` | Conference abstract | Remove the non-DOI value and misleading PDF button; link to the verified organizer abstract and include its URL in BibTeX. |
 
-Keep the PR in draft. These four corrections do not certify all 78 records or all external downloads. A subsequent bibliography pass should distinguish cover/frontispiece records from research articles throughout the archive and review remaining venue/date/citation consistency without inventing new records or changing published routes.
+Keep the PR in draft. These four corrections and two display refinements do not certify all 78 records or all external downloads. A subsequent bibliography pass should review remaining record identities and venue/date/citation consistency without inventing new records or changing published routes. Browser preview review remains a separate check; the Slice 11 checks cover builds, generated HTML, source preservation, and filter state tests.
+
+Slice 11 verification (5 September 2026): production and Netlify-equivalent `--buildFuture` builds each generated 735 pages. Both passed the 78-record / 13-year / seven-type audit. Nine Node filter/state tests and three DOI tests passed. Isolated content-copy builds rejected an unknown kind, an incompatible CSL type, a missing research link, and a non-HTTPS research link. Against the Slice 10 baseline, all 78 titles, author text/links, ordering, routes, attachment controls, and citation bytes matched; all detail abstracts, article bodies, and image attributes also matched. The only source-record changes were the two reviewed `publication_kind` fields and their evidence comments.

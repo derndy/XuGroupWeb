@@ -41,6 +41,8 @@ publishDate: '2016-12-21T00:00:00Z'
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
 # Enter a publication type from the CSL standard.
 publication_types: ['article-journal']
+# Verified in docs/publication-link-audit-2026-09-05.md; CSL type is preserved.
+publication_kind: cover-picture
 
 # Publication name and optional abbreviated publication name.
 publication: In *Small*

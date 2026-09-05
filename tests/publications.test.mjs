@@ -55,7 +55,7 @@ function fixture(hash = '', failHistory = false, rows = [
   { year: '2019', types: 'thesis', search: 'Molecular Design Ye' },
 ]) {
   const fields = { q: element(), type: element(), year: element() };
-  fields.type.options = ['', 'article-journal', 'working-paper', 'thesis'].map((value) => ({ value }));
+  fields.type.options = ['', ...new Set(rows.flatMap((row) => row.types.split(' ')))].map((value) => ({ value }));
   const form = element();
   form.hidden = true;
   form.elements = { namedItem: (name) => fields[name] };
@@ -131,6 +131,29 @@ test('working-paper bookmarks, type changes, and hash navigation preserve matchi
   f.events.fire('hashchange');
   assert.equal(f.fields.type.value, '');
   assert.equal(f.count.textContent, 'Showing 3 of 3 records');
+});
+
+test('artwork bookmarks isolate records and intersect with search and year', () => {
+  const f = fixture('#frontispiece', false, [
+    { year: '2024', types: 'article-journal', search: journal.search },
+    { year: '2018', types: 'frontispiece', search: 'Photoacoustic Xu' },
+    { year: '2016', types: 'cover-picture', search: 'Cell Tracking Xu' },
+  ]);
+  assert.equal(f.fields.type.value, 'frontispiece');
+  assert.deepEqual(f.records.map((record) => record.hidden), [true, false, true]);
+  f.fields.q.value = 'xu';
+  f.fields.q.fire('input');
+  f.fields.year.value = '2016';
+  f.fields.year.fire('change');
+  assert.equal(f.count.textContent, 'Showing 0 of 3 records');
+  f.location.hash = '#cover-picture';
+  f.events.fire('hashchange');
+  assert.equal(f.fields.type.value, 'cover-picture');
+  assert.deepEqual(f.records.map((record) => record.hidden), [true, true, false]);
+  f.form.fire('reset');
+  f.fields.type.value = 'article-journal';
+  f.fields.type.fire('change');
+  assert.deepEqual(f.records.map((record) => record.hidden), [false, true, true]);
 });
 
 test('history restrictions do not block filtering and an empty archive is safe', () => {
