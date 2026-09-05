@@ -16,7 +16,7 @@ undergraduate_students:
   - name: "Zikang Wang"
     role: "Biomedical Engineering at SCUT (2024)"
 
-alumni:
+undergraduate_alumni:
   - name: "Lu Qiu"
     role: "Biomedical Engineering at SCUT (2019-2023)"
     current: "Master of Biostatistics, Columbia University (2023)"

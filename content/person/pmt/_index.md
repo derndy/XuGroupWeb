@@ -3,7 +3,7 @@ title: "Meitang Peng 彭美堂"
 type: landing
 layout: person
 avatar: "/person/pmt/avatar.jpg"
-role: "23 Master's Student in Biomedical Engineering"
+role: "25 PhD Student in Biomedical Engineering"
 category: "graduate_student"
 organizations:
   - name: "South China University of Technology"

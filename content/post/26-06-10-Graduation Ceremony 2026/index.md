@@ -14,6 +14,5 @@ On June 10, 2026, our group gathered to celebrate the graduation of our students
 
 As part of the graduation ceremony, Prof. Xu joined students from the next cohort in performing the song *Chapter* (篇章) for the graduates. The performance conveyed heartfelt wishes, enthusiasm, and anticipation for the graduates as they set out on new journeys.
 
-![Graduation performance](performance.jpg)
 
 Happy graduation to all our graduates, and best wishes for the exciting chapters ahead!
