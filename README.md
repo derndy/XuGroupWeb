@@ -27,11 +27,11 @@ content/_index.md             Homepage metadata
 content/research/             Research content
 content/person/               Member profiles
 content/publication/          Publication records
-content/post/                 News records
+content/post/                 Canonical News records and bundled images
 data/research_system.yml      Three-Pillar research content model
 data/research_assets.yml      Scientific-visual inventory and release state
 data/people_page.yml          People-page copy, group-photo records, and routes
-layouts/                      Custom page templates and partials
+layouts/                      Custom page templates and reusable partials
 static/images/                Public photographs and fixed web assets
 static/data/gallery-data.json Canonical Gallery records and page copy
 ```
@@ -63,8 +63,9 @@ Project-specific scientific claims must remain off the public site until their s
 
 ## Current redesign
 
-The redesign is maintained on `design/site-foundation-v1`. The current draft establishes the visual system, accessible global shell, semantic homepage, integrated Research landing page, governed three-Pillar data model, the complete reusable Pillar detail-page set, scientific-visual release gates, evidence loop, research horizons, testbed framing, recruitment pathway, a genuine 404 recovery page, a semantic People directory, and a server-rendered documentary Gallery with accessible progressive enhancement. Existing member records, portraits, Gallery photographs, filenames, and public image URLs are preserved. News and Publication records remain unchanged.
+The redesign is maintained on `design/site-foundation-v1`. The current draft establishes the visual system, accessible global shell, semantic homepage, integrated Research landing page, governed three-Pillar data model, the complete reusable Pillar detail-page set, scientific-visual release gates, evidence loop, research horizons, testbed framing, recruitment pathway, a genuine 404 recovery page, a semantic People directory, a server-rendered documentary Gallery with accessible progressive enhancement, and a source-backed News ledger. Existing member records, portraits, Gallery photographs, News titles, dates, summaries, featured images, and public URLs are preserved. Publication records remain unchanged.
 
 See [`docs/redesign-foundation.md`](docs/redesign-foundation.md) for the baseline audit and implementation boundaries.
 See [`docs/people-directory-maintenance.md`](docs/people-directory-maintenance.md) before changing member records, portraits, group photographs, or People-page copy.
 See [`docs/gallery-maintenance.md`](docs/gallery-maintenance.md) before changing Gallery records, captions, thumbnails, categories, or public image files.
+See [`docs/news-maintenance.md`](docs/news-maintenance.md) before adding or changing News records, dates, summaries, images, drafts, or public routes.
