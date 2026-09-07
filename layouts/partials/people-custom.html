@@ -219,6 +219,55 @@
   {{ end }}
 </div>
 
+<!-- Graduate Alumni -->
+<h2>Graduate Alumni</h2>
+<div class="container">
+  {{ $people := where .Site.Pages "Section" "person" }}
+  {{ range $people }}
+    {{ if eq .Params.category "graduate_alumni" }}
+      <div class="person">
+        <a href="{{ .RelPermalink }}">
+          <img src="{{ .Params.avatar | absURL }}" alt="{{ .Title }}">
+        </a>
+
+        <p class="name">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </p>
+
+        <p class="role">{{ .Params.role }}</p>
+
+        <p class="social">
+          {{ range .Params.social }}
+
+            {{ if eq .type "email" }}
+              <a href="#"
+                 class="email-icon"
+                 data-email="{{ .link }}"
+                 onclick="copyEmail(event, '{{ .link }}')"
+                 data-tooltip="Email">
+                <i class="{{ .icon_pack }} fa-{{ .icon }}"></i>
+              </a>
+            {{ end }}
+
+            {{ if eq .type "scholar" }}
+              <a href="{{ .link }}" data-tooltip="Google Scholar">
+                <i class="{{ .icon_pack }} fa-{{ .icon }}"></i>
+              </a>
+            {{ end }}
+
+            {{ if eq .type "researchgate" }}
+              <a href="{{ .link }}" data-tooltip="ResearchGate">
+                <i class="{{ .icon_pack }} fa-{{ .icon }}"></i>
+              </a>
+            {{ end }}
+
+          {{ end }}
+        </p>
+      </div>
+    {{ end }}
+  {{ end }}
+</div>
+
 <hr class="section-divider">
 
 <!-- Undergraduate Students -->
